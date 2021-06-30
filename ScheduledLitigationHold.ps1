@@ -1,4 +1,4 @@
-﻿$RootLocation= "C:\CSV"
+$RootLocation= "C:\CSV"
 [string]$userName = ''
 [string]$userPassword = '' 
 ##creating  log file
@@ -91,10 +91,10 @@ $hash = @{
  
 
  ## "To" address needs to be modified
-To = 'adelev@ucka365.com'
+To = 'dvelovic@hiveitservices.com'
 ## from address needs to be mailbox which is logged in powershell session
-From = 'admin@ucka365.com'
-Subject = $subject
+From = 'tate.stanton@hiveitservices.com'
+Subject = "Test Lit Hold"
 SmtpServer = 'outlook.office365.com'
 Credential = $credObject
 Port = 587
@@ -103,6 +103,4 @@ Port = 587
  
 ### Send Mail
  
-Send-MailMessage @hash -UseSsl  -Body $body
-
-
+Send-MailMessage @hash -UseSsl  -Body "Test Test"
