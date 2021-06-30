@@ -28,7 +28,7 @@ $form.Controls.Add($cancelButton)
 $label = New-Object System.Windows.Forms.Label
 $label.Location = New-Object System.Drawing.Point(10,20)
 $label.Size = New-Object System.Drawing.Size(280,20)
-$label.Text = 'Please enter the credentials:'
+$label.Text = 'Please enter your credentials:'
 $form.Controls.Add($label)
 
 $txtB_user = New-Object System.Windows.Forms.TextBox
@@ -111,7 +111,7 @@ $form.Controls.Add($okButton)
 $label = New-Object System.Windows.Forms.Label
 $label.Location = New-Object System.Drawing.Point(10,20)
 $label.Size = New-Object System.Drawing.Size(280,20)
-$label.Text = 'Please enter emailAddress:'
+$label.Text = 'Please enter the Email Address:'
 $form.Controls.Add($label)
 
 $txtB_email = New-Object System.Windows.Forms.TextBox
@@ -122,7 +122,7 @@ $form.Controls.Add($txtB_email)
 $label = New-Object System.Windows.Forms.Label
 $label.Location = New-Object System.Drawing.Point(10,60)
 $label.Size = New-Object System.Drawing.Size(280,20)
-$label.Text = 'Please enter DisplayName:'
+$label.Text = 'Please enter the Display Name:'
 $form.Controls.Add($label)
 
 $txtB_DisplayName = New-Object System.Windows.Forms.TextBox
