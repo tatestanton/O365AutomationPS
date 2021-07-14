@@ -1,4 +1,4 @@
-﻿Connect-MsolService
+Connect-MsolService
 
 
 ### classic Exchange online session is needed because of the extensionattribute
@@ -14,7 +14,7 @@ Import-PSSession ( New-PSSession -ConfigurationName Microsoft.Exchange  `
 
 #import users CSV needs to be in format 'Userprincipalname;UsageLocation
 
-$users= import-csv "C:\temp\UserLicense.csv"
+$users= import-csv "C:\temp\Liquor2.csv"
 
 
 $Outfilename = "C:\temp\License-Done.csv"
@@ -43,7 +43,7 @@ foreach ($entry in $users) {
             
             ### ASSIGN G3 
             $AcctSku= $G3
-
+            #Set-MsolUserLicense -UserPrincipalName $upn -RemoveLicenses $G3
             ## Adding G3 license from $accountSKU variable
             Set-MsolUserLicense -UserPrincipalName $upn  -AddLicenses $AcctSku
 
