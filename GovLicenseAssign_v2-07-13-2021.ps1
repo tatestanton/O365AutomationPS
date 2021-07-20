@@ -1,13 +1,6 @@
 Connect-MsolService
 Connect-ExchangeOnline
 
-### classic Exchange online session is needed because of the extensionattribute
-[string]$userName = 'stanton.m.tate@doit.nh.gov'
-[string]$userPassword = ''
-# Convert to SecureString
-[securestring]$secStringPassword = ConvertTo-SecureString $userPassword -AsPlainText -Force
-[pscredential]$credObject = New-Object System.Management.Automation.PSCredential ($userName, $secStringPassword)
-
 Import-PSSession ( New-PSSession -ConfigurationName Microsoft.Exchange  `
         -ConnectionUri https://outlook.office365.com/powershell-liveid/ -Credential $credObject -Authentication Basic -AllowRedirection
 #import users CSV needs to be in format 'Userprincipalname;UsageLocation
@@ -21,8 +14,6 @@ Import-PSSession ( New-PSSession -ConfigurationName Microsoft.Exchange  `
        $G1="nhgov:STANDARDPACK_GOV"
        $G3="nhgov:ENTERPRISEPACK_GOV"
        $UPNCheck="*Onedrive.X.Test3@doit.nh.gov"
-
-       #$UPNCheck="*hiveitservices.onmicrosoft.com"
        
        
        
@@ -103,4 +94,3 @@ Import-PSSession ( New-PSSession -ConfigurationName Microsoft.Exchange  `
             
        }#foreach
 
-       Get-Recipient Onedrive.X.Test4@doit.nh.gov| FL
