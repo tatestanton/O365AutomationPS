@@ -1,12 +1,16 @@
-﻿$RootLocation= "C:\Temp"
-##creating log file
-$date=Get-Date -Format dd-MM-yy
-$hour= get-date -Format HH:mm
-$log= New-Item $RootLocation\UserDeprovisoin-$date-log.txt -Force
+Connect-MsolService
 
 
-#import users CSV needs to be in format 'Userprincipalname;UsageLocation
-$users= import-csv C:\temp\o365Users.csv -Delimiter ";"
+
+$RootLocation= "C:\CSV\"
+##Log file creation
+$date=Get-Date -Format MM-dd-yy-HH-mm
+$hour= get-date -Format MM-dd-yy-HH-mm 
+$log= New-Item $RootLocation\UserDeprovision-$date-log.txt -Force
+
+
+#import users CSV needs to be in the format 'Userprincipalname;UsageLocation
+$users= import-csv C:\csv\O365Deprovision.csv -Delimiter ";"
 
 
 ##Function that enters text to log file
@@ -21,7 +25,7 @@ function Fill-Log ($message) {
 
 function Remove-o365License ($UPN) {
 
-
+    
     $temp=Get-MsolUser -UserPrincipalName $UPN
     if ($temp -ne $null) {
     
@@ -29,11 +33,11 @@ function Remove-o365License ($UPN) {
 
         $licenses=$temp.Licenses.accountsku.SkuPartNumber -join ","
 
-        Fill-Log "Licenses $licenses for $upn have been removed"
+        Fill-Log "License $licenses for $upn have been removed"
     
     } else {
     
-        Fill-Log "Get operatoin failed for user $Upn"
+        Fill-Log "The operation failed for user $Upn"
         
     }
     
@@ -47,10 +51,10 @@ function Block-SignIn ($UPN) {
         if ($temp -ne $null) {
     
          Set-MsolUser -ObjectId $temp.ObjectId -BlockCredential:$true
-         Fill-Log "$UPN has BlockSighIn set to Yes"
+         Fill-Log "$UPN has Blocked Signin set to Yes"
         } else {
     
-        Fill-Log "Get operatoin failed for user $Upn"
+        Fill-Log "Get operation failed for user $Upn"
         
         }
 
@@ -63,4 +67,3 @@ foreach ($user in $users) {
 
 
 }
-
