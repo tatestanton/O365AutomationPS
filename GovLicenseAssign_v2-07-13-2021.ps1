@@ -1,9 +1,6 @@
 Connect-MsolService
 Connect-ExchangeOnline
 
-Import-PSSession ( New-PSSession -ConfigurationName Microsoft.Exchange  `
-        -ConnectionUri https://outlook.office365.com/powershell-liveid/ -Credential $credObject -Authentication Basic -AllowRedirection
-#import users CSV needs to be in format 'Userprincipalname;UsageLocation
        
        $users= import-csv "C:\csv\Liquor2.csv"
        
