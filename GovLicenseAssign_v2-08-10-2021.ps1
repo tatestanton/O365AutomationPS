@@ -54,7 +54,7 @@ $userRunningthescript=whoami
                    $temp=Get-MsolUser -UserPrincipalName $upn 
 
                    ## creating custom properties based on the info in the $temp variable
-                   $temp | select @{n="UserAccountThatRanTheScript";e={$userRunningthescript}},UserPrincipalName,islicensed,@{n="Licenses";e={$user.licenses.AccountSkuId -join ","}},@{n="Time";e={get-date -Format MM:DD:YYYY:HH:mm:ss}} | Export-Csv $outFileName -Append -NoTypeInformation -Force
+                   $temp | select @{n="UserAccountThatRanTheScript";e={$userRunningthescript}},UserPrincipalName,islicensed,@{n="Licenses";e={$user.licenses.AccountSkuId -join ","}},@{n="Time";e={get-date -Format MM:dd:yyyy:HH:mm:ss}} | Export-Csv $outFileName -Append -NoTypeInformation -Force
 
            
                }
@@ -74,7 +74,7 @@ $userRunningthescript=whoami
                    ## fill temp variable with user info
                    $temp=Get-MsolUser -UserPrincipalName $upn 
                    ## creating custom properties based on the info in the $temp variable
-                   $temp | select @{n="UserAccountThatRanTheScript";e={$userRunningthescript}},UserPrincipalName,islicensed,@{n="Licenses";e={$user.licenses.AccountSkuId -join ","}},@{n="Time";e={get-date -Format MM:DD:YYYY:HH:mm:ss}} | Export-Csv $outFileName -Append -NoTypeInformation -Force
+                   $temp | select @{n="UserAccountThatRanTheScript";e={$userRunningthescript}},UserPrincipalName,islicensed,@{n="Licenses";e={$user.licenses.AccountSkuId -join ","}},@{n="Time";e={get-date -Format MM:dd:yyyy:HH:mm:ss}} | Export-Csv $outFileName -Append -NoTypeInformation -Force
            
            }
        
@@ -94,7 +94,7 @@ $userRunningthescript=whoami
                    $temp=Get-MsolUser -UserPrincipalName $upn 
 
                    ## creating custom properties based on the info in the $temp variable
-                   $temp | select @{n="UserAccountThatRanTheScript";e={$userRunningthescript}},UserPrincipalName,islicensed,@{n="Licenses";e={$user.licenses.AccountSkuId -join ","}},@{n="Time";e={get-date -Format MM:DD:YYYY:HH:mm:ss}} | Export-Csv $outFileName -Append -NoTypeInformation -Force
+                   $temp | select @{n="UserAccountThatRanTheScript";e={$userRunningthescript}},UserPrincipalName,islicensed,@{n="Licenses";e={$user.licenses.AccountSkuId -join ","}},@{n="Time";e={get-date -Format MM:dd:yyyy:HH:mm:ss}} | Export-Csv $outFileName -Append -NoTypeInformation -Force
 
                   
            }
@@ -122,7 +122,7 @@ $userRunningthescript=whoami
                    $temp=Get-MsolUser -UserPrincipalName $upn 
 
                    ## creating custom properties based on the info in the $temp variable
-                   $temp | select @{n="UserAccountThatRanTheScript";e={$userRunningthescript}},UserPrincipalName,islicensed,@{n="Licenses";e={$user.licenses.AccountSkuId -join ","}},@{n="Time";e={get-date -Format MM:DD:YYYY:HH:mm:ss}} | Export-Csv $outFileName -Append -NoTypeInformation -Force
+                   $temp | select @{n="UserAccountThatRanTheScript";e={$userRunningthescript}},UserPrincipalName,islicensed,@{n="Licenses";e={$user.licenses.AccountSkuId -join ","}},@{n="Time";e={get-date -Format MM:dd:yyyy:HH:mm:ss}} | Export-Csv $outFileName -Append -NoTypeInformation -Force
            
            }
            
