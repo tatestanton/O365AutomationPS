@@ -1,4 +1,20 @@
-﻿$allerrors= import-csv "C:\span\TateTemp\allErrors.csv" -Delimiter ";"
+﻿## place from where recursive search starts
+$landingPath="C:\Users\Tate Stanton\AppData\Roaming\Microsoft\MigrationTool\"
+
+##getting all items into variable and filtering only failure
+$allItems=Get-ChildItem -Path $landingPath -Recurse
+$allFailures=$allItems | ? name -like "Failure*.csv"
+
+$consolidatedCSV=@()
+foreach ($Fail in $allFailures) {
+
+$temp= Import-Csv $Fail.FullName
+$consolidatedCSV+= $temp
+
+}
+
+$consolidatedCSV | Export-Csv '"C:\Users\Tate Stanton\AppData\Roaming\Microsoft\MigrationTool\allErrors.csv' -NoTypeInformation -Delimiter ";"
+$allerrors= import-csv "C:\Users\Tate Stanton\AppData\Roaming\Microsoft\MigrationTool\allErrors.csv" -Delimiter ";"
 
 ##needed for sending emails
 $credObject=Get-Credential
